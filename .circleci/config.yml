@@ -43,7 +43,14 @@ jobs:
     steps:
       - checkout
       - heroku/install
-      - heroku/deploy-via-git
+      - run:
+          name: Bundle our project project
+          working_directory: ~/
+          command: tar -czvf my-project.tar.gz ~/project
+      - store_artifacts:
+          path: ~/my-project.tar.gz
+      - heroku/create-review:
+          artifact-pattern: "*.tar.gz"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
