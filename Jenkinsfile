@@ -7,12 +7,12 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        // Add build steps here
+        sh "echo BUILD"
       }
     }
     stage('Test') {
       steps {
-        // Add test steps here
+        sh "echo TEST"
       }
     }
   }
