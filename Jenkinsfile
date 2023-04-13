@@ -16,12 +16,11 @@ pipeline {
       }
     }
   }
-}
-
-post {
-  always {
-    docker.image('ubuntu').withRun('-rm') {
-      // Clean up the container after the build
+  post {
+    always {
+      docker.image('ubuntu').withRun('-rm') {
+        // Clean up the container after the build
+      }
     }
   }
 }
